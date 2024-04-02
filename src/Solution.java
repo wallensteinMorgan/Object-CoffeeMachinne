@@ -11,22 +11,37 @@ public class Solution {
         Coffee americano = new Americano();
         Coffee raf = new Raf();
         Scanner cons = new Scanner(System.in);
-        while (true) {
+        boolean flag = true;
+        while (flag) {
             System.out.println(Menu.collTheMenu);
-        int number = cons.nextInt();
-            if (number == 1) {
-                espresso.makeCoffee("Спасибо за покупку.");
-            } else if (number == 2) {
-                mokkachino.makeCoffee("Отличный выбор.");
-            } else if (number == 3) {
-                americano.makeCoffee("Спасибо.");
-            } else if (number == 4) {
-                raf.makeCoffee("Приходите еще.");
-            } else if (number == 777) {
-                break;
+            String number = cons.nextLine();
+            if (cons.hasNextLine()) {
+                switch (number) {
+                    case "1":
+                        espresso.makeCoffee("Спасибо за покупку.");
+                        break;
+                    case "2":
+                        mokkachino.makeCoffee("Отличный выбор.");
+                        break;
+                    case "3":
+                        americano.makeCoffee("Спасибо.");
+                        break;
+                    case "4":
+                        raf.makeCoffee("Приходите еще.");
+                        break;
+                    case "777":
+                        System.out.println("Goodbye");
+                        flag = false;
+                        break;
+                    default:
+                        System.err.println("Ошибка. Введено некорректное значение. Попробуйте снова.");
+                }
             }
         }
     }
 }
+
+
+
 
 
